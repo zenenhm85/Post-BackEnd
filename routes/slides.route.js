@@ -13,6 +13,7 @@ CREAMOS LAS RUTAS HTTP
 
 app.get('/slides', Slide.mostrarSlide);
 app.post('/slide',Slide.crearSlide);
+app.put('/slide/:id',Slide.editarSlide);
 
 
 /*=============================================
