@@ -46,7 +46,9 @@ const optionsMongoose={
 /*=============================================
 RUTAS
 =============================================*/
-
+app.use( require('./routes/articulos.route'));
+app.use( require('./routes/galeria.route'));
+app.use( require('./routes/slides.route'));
 
 
 /*=============================================
@@ -65,7 +67,6 @@ mongoose.connect('mongodb://localhost:27017/apirest-post', optionsMongoose, (err
 SALIDA PUERTO HTTP
 =============================================*/
 app.listen(process.env.PORT, ()=>{
-
 	console.log(`Enabled to port: ${process.env.PORT}`)
 })
 
