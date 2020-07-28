@@ -11,10 +11,13 @@ const Slide = require('../controllers/slides.controller');
 CREAMOS LAS RUTAS HTTP
 =============================================*/
 
-app.get('/slides', Slide.mostrarSlide);
-app.post('/slide',Slide.crearSlide);
-app.put('/slide/:id',Slide.editarSlide);
-app.delete('/slide/:id',Slide.borarSlide);
+app.get('/slide', Slide.mostrarSlide);
+
+app.post('/slide', Slide.crearSlide);
+
+app.put('/slide/:id', Slide.editarSlide);
+
+app.delete('/slide/:id', Slide.borarSlide);
 
 
 /*=============================================
