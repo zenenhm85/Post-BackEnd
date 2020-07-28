@@ -7,6 +7,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 /*=============================================
 VARIABLE PARA TENER TODAS LAS FUNCIONALIDADES DE EXPRESS
@@ -31,6 +32,11 @@ MIDDLEWARE PARA FILEUPLOAD
 // default options express-fileupload
 app.use(fileUpload());
 
+/*=============================================
+EJECUTANDO CORS
+=============================================*/
+
+app.use(cors());
 
 /*=============================================
 MONGOOSE DEPRECATIONS
