@@ -8,16 +8,22 @@ IMPORTAMOS EL CONTROLADOR
 const Slide = require('../controllers/slides.controller');
 
 /*=============================================
+IMPORTAMOS EL MIDDLEWARE
+=============================================*/
+
+const { verificarToken } = require('../middlewares/autenticacion');
+
+/*=============================================
 CREAMOS LAS RUTAS HTTP
 =============================================*/
 
 app.get('/slide', Slide.mostrarSlide);
 
-app.post('/slide', Slide.crearSlide);
+app.post('/slide', verificarToken, Slide.crearSlide);
 
-app.put('/slide/:id', Slide.editarSlide);
+app.put('/slide/:id', verificarToken, Slide.editarSlide);
 
-app.delete('/slide/:id', Slide.borarSlide);
+app.delete('/slide/:id', verificarToken, Slide.borarSlide);
 
 
 /*=============================================

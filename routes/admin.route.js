@@ -5,7 +5,7 @@ const app = express();
 IMPORTAMOS EL CONTROLADOR
 =============================================*/
 
-const Galeria = require('../controllers/galeria.controller');
+const Admin = require('../controllers/admin.controller');
 
 /*=============================================
 IMPORTAMOS EL MIDDLEWARE
@@ -13,18 +13,18 @@ IMPORTAMOS EL MIDDLEWARE
 
 const { verificarToken } = require('../middlewares/autenticacion');
 
-
 /*=============================================
 CREAMOS LAS RUTAS HTTP
 =============================================*/
 
-app.get('/galeria', Galeria.mostrarGaleria);
+app.get('/admins',verificarToken, Admin.mostrarAdmin);
 
-app.post('/galeria', verificarToken, Galeria.crearGaleria);
+app.post('/admin', verificarToken, Admin.crearAdmin);
+app.post('/login', Admin.login);
 
-app.put('/galeria/:id', verificarToken, Galeria.editarGaleria);
+app.put('/admin/:id', verificarToken, Admin.editarAdmin);
 
-app.delete('/galeria/:id',verificarToken, Galeria.borrarGaleria);
+app.delete('/admin/:id', verificarToken, Admin.borrarAdmin);
 
 /*=============================================
 EXPORTAMOS LA RUTA

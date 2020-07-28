@@ -7,6 +7,12 @@ IMPORTAMOS EL CONTROLADOR
 
 const Articulos = require('../controllers/articulos.controller');
 
+/*=============================================
+IMPORTAMOS EL MIDDLEWARE
+=============================================*/
+
+const { verificarToken } = require('../middlewares/autenticacion');
+
 
 /*=============================================
 CREAMOS LAS RUTAS HTTP
@@ -14,11 +20,11 @@ CREAMOS LAS RUTAS HTTP
 
 app.get('/articulos', Articulos.mostrarArticulos);
 
-app.post('/articulo', Articulos.crearArticulo);
+app.post('/articulo', verificarToken, Articulos.crearArticulo);
 
-app.put('/articulo/:id', Articulos.editarArticulo);
+app.put('/articulo/:id', verificarToken, Articulos.editarArticulo);
 
-app.delete('/articulo/:id', Articulos.borrarArticulo);
+app.delete('/articulo/:id', verificarToken, Articulos.borrarArticulo);
 
 /*=============================================
 EXPORTAMOS LA RUTA

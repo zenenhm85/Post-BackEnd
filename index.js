@@ -49,7 +49,7 @@ RUTAS
 app.use( require('./routes/articulos.route'));
 app.use( require('./routes/galeria.route'));
 app.use( require('./routes/slides.route'));
-
+app.use( require('./routes/admin.route'));
 
 /*=============================================
 CONEXIÓN A LA BASE DE DATOS
