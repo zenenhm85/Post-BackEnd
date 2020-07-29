@@ -19,6 +19,7 @@ CREAMOS LAS RUTAS HTTP
 =============================================*/
 
 app.get('/articulos', Articulos.mostrarArticulos);
+app.get('/articulo/:ruta/:nombre', Articulos.mostrarImg);
 
 app.post('/articulo', verificarToken, Articulos.crearArticulo);
 

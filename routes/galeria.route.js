@@ -19,6 +19,7 @@ CREAMOS LAS RUTAS HTTP
 =============================================*/
 
 app.get('/galeria', Galeria.mostrarGaleria);
+app.get('/galeria/img/:nombre', Galeria.mostrarImg);
 
 app.post('/galeria', verificarToken, Galeria.crearGaleria);
 

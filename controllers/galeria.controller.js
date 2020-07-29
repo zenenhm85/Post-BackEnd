@@ -9,6 +9,7 @@ ADMINISTRACIÓN DE CARPETAS Y ARCHIVOS EN NODEJS
 =============================================*/
 
 const fs = require('fs');
+const path = require('path');
 
 /*=============================================
 FUNCIÓN GET
@@ -479,6 +480,31 @@ let borrarGaleria = (req, res)=>{
 	})
 
 }
+/*=============================================
+FUNCIÓN GET PARA TENER ACCESO A LAS IMÁGENES
+=============================================*/
+
+let mostrarImg = (req, res)=>{
+
+	let imagen = req.params.nombre;
+	let rutaImagen = `./archivos/galeria/${imagen}`;
+
+	fs.exists(rutaImagen, exists=>{
+
+		if(!exists){
+
+			return res.json({
+				status:400,
+				mensaje: "La imagen no existe"
+			})
+
+		}
+
+		res.sendFile(path.resolve(rutaImagen));
+
+	})
+
+}
 
 /*=============================================
 EXPORTAMOS LAS FUNCIONES DEL CONTROLADOR
@@ -489,5 +515,6 @@ module.exports = {
 	mostrarGaleria,
 	crearGaleria,
 	editarGaleria,
-	borrarGaleria
+	borrarGaleria,
+	mostrarImg
 }

@@ -18,6 +18,7 @@ CREAMOS LAS RUTAS HTTP
 =============================================*/
 
 app.get('/slide', Slide.mostrarSlide);
+app.get('/slide/img/:nombre', Slide.mostrarImg);
 
 app.post('/slide', verificarToken, Slide.crearSlide);
 
